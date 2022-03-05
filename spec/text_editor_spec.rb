@@ -19,6 +19,10 @@ RSpec.describe TextEditor do
     it "has a method that stores incoming message" do
       expect(@te.input_message.chomp).to eq("Hello World this is a test file")
     end
+    it "is connected to a module" do
+      require "pry"; binding.pry
+      expect(@te.library).to eq(@braille_hash)
+    end
     
     
 end 
