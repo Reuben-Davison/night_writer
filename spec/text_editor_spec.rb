@@ -18,7 +18,7 @@ RSpec.describe TextEditor do
     end
     
     it "has a method that stores incoming message" do
-      expect(@te.input_message).to eq("Hello World this is a test file")
+      expect(@te.input_message.chomp).to eq("Hello World this is a test file")
 
       
     end
