@@ -3,9 +3,7 @@ class TextEditor
   def initialize(input, output)
     @input  = File.open(input, "r")
     @output = output
-    # @incoming = @input.read
-    # message
-    # require "pry"; binding.pry
+    prints_message
   end
 
   def input_message
