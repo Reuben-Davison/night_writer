@@ -1,8 +1,8 @@
-require "./convertable"
+require "./convertable.rb"
 
 class TextEditor
   include Convertable
-  attr_reader :message, :converter_key
+  attr_reader :message, :converter_key, :braille_message
   
   def initialize(input, output)
     @input  = File.open(input, "r")
@@ -10,6 +10,7 @@ class TextEditor
     @message = nil
     input_message
     @converter_key = {}
+    @braille_message = nil
   end
 
   def input_message
@@ -21,19 +22,18 @@ class TextEditor
   end
   
   def incoming_message_to_array
-    @message.split("")
+    @message.downcase.split("")
   end
   
   def convert_to_braille
     number = 0
-    incoming_message_to_array.each {|letter| "#{converter_key["letter"][number]}"}
-    require "pry"; binding.pry
+    new_message = incoming_message_to_array
+    lines_of_braille = []
     3.times do
-      message = "#{hash[“a”][number]}#{hash[“b”][number]}#{}#{}#{}#{}"
+      lines_of_braille << new_message.map {|letter| "#{converter_key[letter][number]}"}.join
       number += 1
-    end
-  
-    
+      require "pry"; binding.pry
+    end 
   end
 
 
