@@ -31,5 +31,14 @@ module  Convertable
       "z" => ["0.", ".0", "00" ],  
       " " => ["..", "..", ".." ],  
     }
-  end 
+  end  
+  
+  def prints_message 
+    print "Created #{@output} containing #{@message.length} characters"
+  end
+  
+  def incoming_message_to_array
+    @message.downcase.split("")
+  end
+  
 end 
