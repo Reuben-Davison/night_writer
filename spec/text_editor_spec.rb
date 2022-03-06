@@ -36,5 +36,8 @@ RSpec.describe TextEditor do
     it "sends converted braille_message to an a specified location" do
       expect('braille.txt').to eq @braille_message
     end
+    it "will only print out 40 letters at a time" do
+      
+    end
     
 end 

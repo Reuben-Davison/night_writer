@@ -1,4 +1,4 @@
-require "./convertable.rb"
+require "./lib/convertable"
 
 class TextEditor
   include Convertable
