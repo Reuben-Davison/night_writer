@@ -13,7 +13,7 @@ RSpec.describe TextEditor do
     end
       
     it "can print a message" do
-      expect{@te.prints_message}.to output('Created braille.txt containing 31 characters').to_stdout
+      expect{@te.prints_terminal_message}.to output('Created braille.txt containing 31 characters').to_stdout
     end
     
     it "has a method that stores incoming message" do

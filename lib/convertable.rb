@@ -33,7 +33,7 @@ module  Convertable
     }
   end  
   
-  def prints_message 
+  def prints_terminal_message 
     print "Created #{@output} containing #{@message.length} characters"
   end
   

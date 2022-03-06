@@ -12,16 +12,16 @@ class TextEditor
     @braille_message = nil
     @converter_key = {}
     input_message
-    output_message
+    output_braille_message
+    prints_terminal_message
   end
 
   def input_message
     @message = @input.read.chomp
   end
-  
-  def output_message
+  #unsure of how to test for this method
+  def output_braille_message
     convert_to_braille
-    # require "pry"; binding.pry
     @output_location.write(@braille_message)
   end
 
