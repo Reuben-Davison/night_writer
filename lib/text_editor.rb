@@ -27,13 +27,12 @@ class TextEditor
   
   def convert_to_braille
     number = 0
-    new_message = incoming_message_to_array
     lines_of_braille = []
     3.times do
-      lines_of_braille << new_message.map {|letter| "#{converter_key[letter][number]}"}.join
+      lines_of_braille << incoming_message_to_array.map {|letter| "#{converter_key[letter][number]}"}.join
       number += 1
-      require "pry"; binding.pry
-    end 
+    end
+    @braille_message = lines_of_braille.join("\n") 
   end
 
 

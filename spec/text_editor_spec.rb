@@ -30,7 +30,11 @@ RSpec.describe TextEditor do
     
     it "converts letters to braille " do
       @te.library
-      expect(@te.convert_to_braille).to eq("0.0.00\n..0...\n......")
+      @te.convert_to_braille
+      expect(@te.braille_message).to eq("0.0.0.0.0....00.0.0.00...00..0.0...0.0..0....00..0.0..00.00.0.\n00.00.0..0..00.0000..0..00000.0...0.0.......00.00.00..0.0.0..0\n....0.0.0....00.0.0.....0.....0.....0.......0...0.0.......0...")
+    end
+    it "text" do
+      
     end
     
 end 
