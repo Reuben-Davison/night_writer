@@ -1,7 +1,7 @@
 module  Convertable
   
   def library
-    @braille_hash = 
+    @converter_key = 
     { 
       "a" => ["0.", "..", ".." ],
       "b" => ["0.", "0.", ".." ],

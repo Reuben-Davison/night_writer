@@ -20,9 +20,13 @@ RSpec.describe TextEditor do
       expect(@te.message).to eq("Hello World this is a test file")
     end
     it "is connected to a module" do
+      @te.library
       # require "pry"; binding.pry
-      expect(@te.library).to eq(@braille_hash)
+      expect(@te.library).to eq(@te.converter_key)
     end
-    
+    it "converts letters to braille " do
+      expect(@te.convert_to_braille("abc")).te eq("0.0.00\n..0...\n......")
+      
+    end
     
 end 
