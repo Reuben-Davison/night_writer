@@ -13,14 +13,14 @@ RSpec.describe TextEditor do
     end
       
     it "can print a message" do
-      expect{@te.prints_message}.to output('Created braille.txt containing 32 characters').to_stdout
+      expect{@te.prints_message}.to output('Created braille.txt containing 31 characters').to_stdout
     end
     
     it "has a method that stores incoming message" do
-      expect(@te.input_message.chomp).to eq("Hello World this is a test file")
+      expect(@te.message).to eq("Hello World this is a test file")
     end
     it "is connected to a module" do
-      require "pry"; binding.pry
+      # require "pry"; binding.pry
       expect(@te.library).to eq(@braille_hash)
     end
     
