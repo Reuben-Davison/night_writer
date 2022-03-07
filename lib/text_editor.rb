@@ -14,7 +14,6 @@ class TextEditor
     @output_lines = [] 
     input_message
     output_braille_message
-    # prints_terminal_message
   end
 
 
