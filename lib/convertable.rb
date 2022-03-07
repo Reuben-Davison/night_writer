@@ -33,12 +33,23 @@ module  Convertable
     }
   end  
   
+  def input_message
+    @message = @input.read.chomp
+  end
+  
   def prints_terminal_message 
     print "Created #{@output} containing #{@message.length} characters"
   end
   
   def incoming_message_to_array
     @message.downcase.split("")
+  end
+  
+  def  break_up_lines
+      @output_lines.each do |line| 
+        @output_lines << line.slice!(80..) if line.length > 80
+      end 
+  @output_message = @output_lines.join("\n") 
   end
   
 end 

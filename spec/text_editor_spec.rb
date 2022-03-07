@@ -21,7 +21,6 @@ RSpec.describe TextEditor do
     end
     it "is connected to a module" do
       @te.library
-      # require "pry"; binding.pry
       expect(@te.library).to eq(@te.converter_key)
     end
     it "splits the incoming message into an array" do
@@ -29,16 +28,14 @@ RSpec.describe TextEditor do
     end
     
     it "converts letters to braille " do
-      @te.library
-      @te.convert_to_braille
-      expect(@te.braille_message).to eq("0.0.0.0.0....00.0.0.00...00..0.0...0.0..0....00..0.0..00.00.0.\n00.00.0..0..00.0000..0..00000.0...0.0.......00.00.00..0.0.0..0\n....0.0.0....00.0.0.....0.....0.....0.......0...0.0.......0...")
+      expect(@te.output_message).to eq("0.0.0.0.0....00.0.0.00...00..0.0...0.0..0....00..0.0..00.00.0.\n00.00.0..0..00.0000..0..00000.0...0.0.......00.00.00..0.0.0..0\n....0.0.0....00.0.0.....0.....0.....0.......0...0.0.......0...")
     end
     xit "sends converted braille_message to an a specified location" do
-      expect('braille.txt').to eq @braille_message
+      expect('braille.txt').to eq @output_message
     end
     it "will only print out 40 letters at a time" do
-      @te.break_up_braille
-      expect(@te.lines_of_braille[0].count).to eq < 80
+      @te.break_up_lines
+      expect(@te.output_lines[0].length).to eq <= 80
     end
     
 end 
