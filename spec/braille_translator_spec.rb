@@ -18,6 +18,11 @@ RSpec.describe BrailleTranslator do
     it "can adapt output message" do
       expect(@bt.deliver_message).to eq("this is a test")
     end 
+    
+    it "converts brialle to letters" do
+      @bt.convert_from_braille
+      expect(@bt.output_message).to eq("hello world this is a test file")
+    end
 
 
 
