@@ -33,11 +33,12 @@ RSpec.describe TextEditor do
       @te.convert_to_braille
       expect(@te.braille_message).to eq("0.0.0.0.0....00.0.0.00...00..0.0...0.0..0....00..0.0..00.00.0.\n00.00.0..0..00.0000..0..00000.0...0.0.......00.00.00..0.0.0..0\n....0.0.0....00.0.0.....0.....0.....0.......0...0.0.......0...")
     end
-    it "sends converted braille_message to an a specified location" do
+    xit "sends converted braille_message to an a specified location" do
       expect('braille.txt').to eq @braille_message
     end
     it "will only print out 40 letters at a time" do
-      
+      @te.break_up_braille
+      expect(@te.lines_of_braille[0].count).to eq < 80
     end
     
 end 

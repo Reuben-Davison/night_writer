@@ -19,11 +19,6 @@ class TextEditor
   def input_message
     @message = @input.read.chomp
   end
-  #unsure of how to test for this method
-  def output_braille_message
-    convert_to_braille
-    @output_location.write(@braille_message)
-  end
 
   def convert_to_braille
     library
@@ -36,5 +31,10 @@ class TextEditor
     @braille_message = lines_of_braille.join("\n") 
   end
 
+  #unsure of how to test for this method
+  def output_braille_message
+    convert_to_braille
+    @output_location.write(@braille_message)
+  end
 
 end 
