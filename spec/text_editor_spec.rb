@@ -42,8 +42,6 @@ RSpec.describe TextEditor do
       @input2 = 'message2.txt'
       @output2 = "braille2.txt"
       @te1 = TextEditor.new(@input2, @output2)
-      @te1.break_up_lines
-      require "pry"; binding.pry
       expect(@te1.output_lines[0].length).to be <= 80
       expect(@te1.output_lines[5].length).to be <= 80
       expect(@te1.output_lines[-1].length).to be <= 80
