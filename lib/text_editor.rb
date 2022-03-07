@@ -2,7 +2,7 @@ require "./lib/convertable"
 
 class TextEditor
   include Convertable
-  attr_reader :message, :converter_key, :output_message, :output_lines
+  attr_reader :message, :converter_key, :output_message, :output_lines, :input, :output_location
 
   def initialize(input, output)
     @input  = File.open(input, "r")

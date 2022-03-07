@@ -11,15 +11,14 @@ RSpec.describe BrailleTranslator do
     
     it "exists" do
       expect(@bt).to be_a BrailleTranslator
-      expect(BrailleTranslator.superclass).to be TextEditor
-      # require "pry"; binding.pry
     end 
     
     it "can adapt output message" do
       expect(@bt.deliver_message).to eq("this is a test")
     end 
     
-    it "converts brialle to letters" do
+    it "converts braille to letters" do
+      require "pry"; binding.pry
       @bt.convert_from_braille
       expect(@bt.output_message).to eq("hello world this is a test file")
     end
