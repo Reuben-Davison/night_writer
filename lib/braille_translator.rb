@@ -18,26 +18,28 @@ class BrailleTranslator
   end
 
   def deliver_message
+    convert_from_braille
     # break_up_lines
-    # @output_location.write(@output_message)
+    @output_location.write(@output_message)
     prints_terminal_message
   end
   
   def message_to_row_array
-    single_line = @message.delete("\n").split("")
+    # single_line = @message.delete("\n").split("")
+    message.split("\n")
     row_length = single_line.length / 3
     single_line.each_slice(row_length).to_a
+    require "pry"; binding.pry
   end
   
   def convert_from_braille
     message = []
     braille_message = message_to_row_array
     library
-    until message_to_row_array[0].count == 0
+    until braille_message[0].count == 0
       letter_array = []
       braille_message.each {|row| letter_array << row.slice!(0..1).join}
       @converter_key.find {|letter, braille| message << letter if letter_array == braille}
-    # require "pry"; binding.pry
     end 
     @output_message = message.join("").to_s
   end

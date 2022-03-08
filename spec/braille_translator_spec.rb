@@ -14,11 +14,15 @@ RSpec.describe BrailleTranslator do
     end 
     
     it "can adapt output message" do
-      expect(@bt.deliver_message).to eq("this is a test")
+      expect{@bt.prints_terminal_message}.to output("Created #{@output} containing #{@bt.message.length} characters").to_stdout
     end 
     
     it "converts message into three arrays representing rows" do
-      expect(@bt.message_to_row_array).to eq([])
+      @input = 'braille5.txt'
+      @output = 'abcoutput.txt'
+      @bt2 = BrailleTranslator.new(@input, @output) 
+      
+      expect(@bt2.message_to_row_array).to eq([["0", ".", "0", ".", "0", "0"], [".", ".", "0", ".", ".", "."], [".", ".", ".", ".", ".", "."]])
     end
     
     it "converts braille to letters" do
