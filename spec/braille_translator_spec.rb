@@ -22,7 +22,7 @@ RSpec.describe BrailleTranslator do
       @output = 'abcoutput.txt'
       @bt2 = BrailleTranslator.new(@input, @output) 
       
-      expect(@bt2.message_to_row_array).to eq([["0", ".", "0", ".", "0", "0"], [".", ".", "0", ".", ".", "."], [".", ".", ".", ".", ".", "."]])
+      expect(@bt2.message_to_row_array).to eq(["0.0.00", "..0...", "......"])
     end
     
     it "converts braille to letters" do

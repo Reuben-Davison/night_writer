@@ -25,21 +25,26 @@ class BrailleTranslator
   end
   
   def message_to_row_array
-    # single_line = @message.delete("\n").split("")
-    message.split("\n")
-    row_length = single_line.length / 3
-    single_line.each_slice(row_length).to_a
-    require "pry"; binding.pry
+    line_array = []
+    message = @message.split("\n")
+    3.times {line_array << message.shift}
+    until message.count == 0
+      line_array[0] << message.shift
+      line_array[1] << message.shift
+      line_array[2] << message.shift
+    end
+    line_array 
   end
   
   def convert_from_braille
     message = []
     braille_message = message_to_row_array
     library
-    until braille_message[0].count == 0
+    until braille_message[0].length == 0
       letter_array = []
-      braille_message.each {|row| letter_array << row.slice!(0..1).join}
+      braille_message.each {|row| letter_array << row.slice!(0..1)}
       @converter_key.find {|letter, braille| message << letter if letter_array == braille}
+      # require "pry"; binding.pry
     end 
     @output_message = message.join("").to_s
   end
