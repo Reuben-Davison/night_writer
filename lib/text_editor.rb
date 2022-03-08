@@ -2,8 +2,8 @@ require "./lib/convertable"
 
 class TextEditor
   include Convertable
-  attr_reader :message, :converter_key, :output_message, :output_lines
-  
+  attr_reader :message, :converter_key, :output_message, :output_lines, :input, :output_location
+
   def initialize(input, output)
     @input  = File.open(input, "r")
     @output = output
@@ -13,10 +13,8 @@ class TextEditor
     @converter_key = {}
     @output_lines = [] 
     input_message
-    output_braille_message
+    deliver_message
   end
-
-
 
   def convert_to_braille
     library
@@ -27,13 +25,11 @@ class TextEditor
     end
   end
 
-
   #unsure of how to test for this method
-  def output_braille_message
+  def deliver_message
     convert_to_braille
     break_up_lines
     @output_location.write(@output_message)
     prints_terminal_message
   end
-
 end 
