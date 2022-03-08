@@ -19,7 +19,6 @@ class BrailleTranslator
 
   def deliver_message
     convert_from_braille
-    # break_up_lines
     @output_location.write(@output_message)
     prints_terminal_message
   end
